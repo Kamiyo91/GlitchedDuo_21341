@@ -43,17 +43,20 @@ namespace GlitchedDuo_21341
             });
             ModParameters.OnlyCardKeywords.AddRange(new List<Tuple<List<string>, List<LorId>, LorId>>
             {
-                new Tuple<List<string>, List<LorId>, LorId>(new List<string> { "GlitchedDuoPage_21341" },
-                    new List<LorId> { new LorId(GlitchedDuoModParameters.PackageId, 1) },
-                    new LorId(GlitchedDuoModParameters.PackageId, 10000001))
+                new Tuple<List<string>, List<LorId>, LorId>(new List<string> { "GlitchedFinnPage_21341" },
+                    new List<LorId> { new LorId(GlitchedDuoModParameters.PackageId, 5) },
+                    new LorId(GlitchedDuoModParameters.PackageId, 10000001)),
+                new Tuple<List<string>, List<LorId>, LorId>(new List<string> { "GlitchedJakePage_21341" },
+                    new List<LorId> { new LorId(GlitchedDuoModParameters.PackageId, 12) },
+                    new LorId(GlitchedDuoModParameters.PackageId, 10000002))
             });
             ModParameters.UntransferablePassives.AddRange(new List<LorId>
             {
-                new LorId(GlitchedDuoModParameters.PackageId, 4), new LorId(GlitchedDuoModParameters.PackageId, 5)
+                new LorId(GlitchedDuoModParameters.PackageId, 2), new LorId(GlitchedDuoModParameters.PackageId, 3)
             });
             ModParameters.PersonalCardList.AddRange(new List<LorId>
             {
-                new LorId(GlitchedDuoModParameters.PackageId, 2)
+                new LorId(GlitchedDuoModParameters.PackageId, 4)
             });
             //ModParameters.EgoPersonalCardList.AddRange(new List<LorId>
             //{
@@ -73,7 +76,7 @@ namespace GlitchedDuo_21341
             ModParameters.DefaultKeyword.Add(GlitchedDuoModParameters.PackageId, "GlitchedDuoModPage_21341");
             ModParameters.BookList.AddRange(new List<LorId>
             {
-                new LorId(GlitchedDuoModParameters.PackageId, 1)
+                new LorId(GlitchedDuoModParameters.PackageId, 3)
             });
         }
     }

@@ -87,6 +87,7 @@
     <Compile Include="Cards\DiceCardSelfAbility_BladeSlash_21341.cs" />
     <Compile Include="Cards\DiceCardSelfAbility_ElasticDestrucion_21341.cs" />
     <Compile Include="Cards\DiceCardSelfAbility_FightMe_21341.cs" />
+    <Compile Include="Cards\DiceCardSelfAbility_GlitchedEgo_21341.cs" />
     <Compile Include="Cards\DiceCardSelfAbility_GlitchedSwordSlash_21341.cs" />
     <Compile Include="Cards\DiceCardSelfAbility_GlitchyBladeArm_21341.cs" />
     <Compile Include="Cards\DiceCardSelfAbility_ListenUp_21341.cs" />

@@ -27,7 +27,7 @@ namespace GlitchedDuo_21341.Passives
                 RefreshUI = true,
                 RecoverLightOnSurvive = false,
                 EgoType = typeof(BattleUnitBuf_GlitchedFinnEgo_21341),
-                EgoCardId = new LorId(GlitchedDuoModParameters.PackageId, 9),
+                EgoCardId = new LorId(GlitchedDuoModParameters.PackageId, 4),
                 HasEgoAbDialog = true,
                 HasSurviveAbDialog = true,
                 SurviveAbDialogColor = AbColorType.Negative,
