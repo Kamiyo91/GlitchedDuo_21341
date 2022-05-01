@@ -87,6 +87,7 @@
     <Compile Include="Cards\DiceCardSelfAbility_BladeSlash_21341.cs" />
     <Compile Include="Cards\DiceCardSelfAbility_ElasticDestrucion_21341.cs" />
     <Compile Include="Cards\DiceCardSelfAbility_FightMe_21341.cs" />
+    <Compile Include="Cards\DiceCardSelfAbility_FinnMassAttack_21341.cs" />
     <Compile Include="Cards\DiceCardSelfAbility_GlitchedEgo_21341.cs" />
     <Compile Include="Cards\DiceCardSelfAbility_GlitchedSwordSlash_21341.cs" />
     <Compile Include="Cards\DiceCardSelfAbility_GlitchyBladeArm_21341.cs" />
@@ -95,12 +96,17 @@
     <Compile Include="GlitchedDuo21341ModInit.cs" />
     <Compile Include="GlitchedDuo_21341MapManager.cs" />
     <Compile Include="Passives\PassiveAbility_BestDuo_21341.cs" />
+    <Compile Include="Passives\PassiveAbility_CorruptedFriendship_21341.cs" />
     <Compile Include="Passives\PassiveAbility_GlitchedFinnNpc_21341.cs" />
     <Compile Include="Passives\PassiveAbility_GlitchedFinn_21341.cs" />
     <Compile Include="Passives\PassiveAbility_GlitchedJakeNpc_21341.cs" />
     <Compile Include="Passives\PassiveAbility_GlitchedJake_21341.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\CustomMapUtility\Assemblies\CustomMapUtility.cs" />
+    <Compile Include="Util\Extension\MechUtilEx.cs" />
+    <Compile Include="Util\Extension\NpcMechUtil_Finn.cs" />
+    <Compile Include="Util\Extension\NpcMechUtil_Jake.cs" />
+    <Compile Include="Util\MapUtil.cs" />
     <Compile Include="Util\MatchUtil.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -37,7 +37,7 @@ namespace GlitchedDuo_21341.Passives
                     new AbnormalityCardDialog
                     {
                         id = "Jake",
-                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("JakeSurvive1_Re21341"))
+                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("JakeSurvive1_21341"))
                             .Value.Desc
                     }
                 },
@@ -46,7 +46,7 @@ namespace GlitchedDuo_21341.Passives
                     new AbnormalityCardDialog
                     {
                         id = "Jake",
-                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("JakeEgoActive1_Re21341"))
+                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("JakeEgoActive1_21341"))
                             .Value.Desc
                     }
                 }

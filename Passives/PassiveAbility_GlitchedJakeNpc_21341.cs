@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GlitchedDuo_21341.Buffs;
+using GlitchedDuo_21341.Util.Extension;
 using KamiyoStaticBLL.Enums;
 using KamiyoStaticBLL.MechUtilBaseModels;
 using KamiyoStaticBLL.Models;
-using KamiyoStaticUtil.BaseClass;
 using KamiyoStaticUtil.Utils;
 using LOR_XML;
 
@@ -12,11 +12,11 @@ namespace GlitchedDuo_21341.Passives
 {
     public class PassiveAbility_GlitchedJakeNpc_21341 : PassiveAbilityBase
     {
-        private NpcMechUtilBase _util;
+        private NpcMechUtil_Jake _util;
 
         public override void OnWaveStart()
         {
-            _util = new NpcMechUtilBase(new NpcMechUtilBaseModel
+            _util = new NpcMechUtil_Jake(new NpcMechUtilBaseModel
             {
                 Owner = owner,
                 Hp = 0,
@@ -37,7 +37,7 @@ namespace GlitchedDuo_21341.Passives
                     new AbnormalityCardDialog
                     {
                         id = "Jake",
-                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("JakeSurvive1_Re21341"))
+                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("JakeSurvive1_21341"))
                             .Value.Desc
                     }
                 },
@@ -46,7 +46,7 @@ namespace GlitchedDuo_21341.Passives
                     new AbnormalityCardDialog
                     {
                         id = "Jake",
-                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("JakeEgoActive1_Re21341"))
+                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("JakeEgoActive1_21341"))
                             .Value.Desc
                     }
                 }
@@ -80,6 +80,11 @@ namespace GlitchedDuo_21341.Passives
         {
             if (owner.bufListDetail.HasBuf<BattleUnitBuf_GlitchedJakeEgo_21341>())
                 MapStaticUtil.ActiveCreatureBattleCamFilterComponent();
+        }
+
+        public override void OnRoundEndTheLast()
+        {
+            _util.CheckPhase();
         }
     }
 }

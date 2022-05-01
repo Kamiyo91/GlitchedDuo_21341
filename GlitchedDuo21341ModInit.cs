@@ -58,10 +58,10 @@ namespace GlitchedDuo_21341
             {
                 new LorId(GlitchedDuoModParameters.PackageId, 4)
             });
-            //ModParameters.EgoPersonalCardList.AddRange(new List<LorId>
-            //{
-            //    new LorId(GlitchedDuoModParameters.PackageId, 9)
-            //});
+            ModParameters.EgoPersonalCardList.AddRange(new List<LorId>
+            {
+                new LorId(GlitchedDuoModParameters.PackageId, 13)
+            });
             ModParameters.DynamicNames.AddRange(new Dictionary<LorId, LorId>
             {
                 {

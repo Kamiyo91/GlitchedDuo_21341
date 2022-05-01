@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GlitchedDuo_21341.BLL;
 using GlitchedDuo_21341.Buffs;
+using GlitchedDuo_21341.Util.Extension;
 using KamiyoStaticBLL.Enums;
 using KamiyoStaticBLL.MechUtilBaseModels;
 using KamiyoStaticBLL.Models;
-using KamiyoStaticUtil.BaseClass;
 using KamiyoStaticUtil.Utils;
 using LOR_XML;
 
@@ -12,16 +13,18 @@ namespace GlitchedDuo_21341.Passives
 {
     public class PassiveAbility_GlitchedFinnNpc_21341 : PassiveAbilityBase
     {
-        private NpcMechUtilBase _util;
+        private NpcMechUtil_Finn _util;
 
         public override void OnWaveStart()
         {
-            _util = new NpcMechUtilBase(new NpcMechUtilBaseModel
+            _util = new NpcMechUtil_Finn(new NpcMechUtilBaseModel
             {
                 Owner = owner,
                 Hp = 0,
                 SetHp = 98,
                 MechHp = 171,
+                Counter = 0,
+                MaxCounter = 4,
                 Survive = true,
                 HasEgo = true,
                 HasMechOnHp = true,
@@ -37,19 +40,28 @@ namespace GlitchedDuo_21341.Passives
                     new AbnormalityCardDialog
                     {
                         id = "Finn",
-                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("FinnSurvive1_Re21341"))
+                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("FinnSurvive1_21341"))
                             .Value.Desc
                     }
+                },
+                EgoMapName = "GlitchedDuo_21341",
+                EgoMapType = typeof(GlitchedDuo_21341MapManager),
+                BgY = 0.55f,
+                OriginalMapStageIds = new List<LorId>
+                {
+                    new LorId(GlitchedDuoModParameters.PackageId, 1)
                 },
                 EgoAbDialogList = new List<AbnormalityCardDialog>
                 {
                     new AbnormalityCardDialog
                     {
                         id = "Finn",
-                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("FinnEgoActive1_Re21341"))
+                        dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("FinnEgoActive1_21341"))
                             .Value.Desc
                     }
-                }
+                },
+                LorIdEgoMassAttack = new LorId(GlitchedDuoModParameters.PackageId, 14),
+                EgoAttackCardId = new LorId(GlitchedDuoModParameters.PackageId, 14)
             });
         }
 
@@ -80,6 +92,35 @@ namespace GlitchedDuo_21341.Passives
         {
             if (owner.bufListDetail.HasBuf<BattleUnitBuf_GlitchedFinnEgo_21341>())
                 MapStaticUtil.ActiveCreatureBattleCamFilterComponent();
+        }
+
+        public override void OnRoundEndTheLast_ignoreDead()
+        {
+            _util.ReturnFromEgoMap();
+        }
+
+        public override BattleDiceCardModel OnSelectCardAuto(BattleDiceCardModel origin, int currentDiceSlotIdx)
+        {
+            _util.OnSelectCardPutMassAttack(ref origin);
+            return base.OnSelectCardAuto(origin, currentDiceSlotIdx);
+        }
+
+        public override void OnRoundEnd()
+        {
+            _util.ExhaustEgoAttackCards();
+            _util.SetOneTurnCard(false);
+            _util.RaiseCounter();
+        }
+
+        public override void OnRoundEndTheLast()
+        {
+            _util.CheckPhase();
+        }
+
+        public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
+        {
+            _util.OnUseCardResetCount(curCard);
+            _util.ChangeToEgoMap(curCard.card.GetID());
         }
     }
 }
