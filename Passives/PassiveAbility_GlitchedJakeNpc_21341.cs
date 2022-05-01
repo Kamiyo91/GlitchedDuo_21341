@@ -13,6 +13,7 @@ namespace GlitchedDuo_21341.Passives
     public class PassiveAbility_GlitchedJakeNpc_21341 : PassiveAbilityBase
     {
         private NpcMechUtil_Jake _util;
+        private bool _filterCheck;
 
         public override void OnWaveStart()
         {
@@ -78,13 +79,20 @@ namespace GlitchedDuo_21341.Passives
 
         public override void OnRoundStartAfter()
         {
-            if (owner.bufListDetail.HasBuf<BattleUnitBuf_GlitchedJakeEgo_21341>())
-                MapStaticUtil.ActiveCreatureBattleCamFilterComponent();
+            if (!owner.bufListDetail.HasBuf<BattleUnitBuf_GlitchedJakeEgo_21341>()) return;
+            _filterCheck = true;
+            MapStaticUtil.ActiveCreatureBattleCamFilterComponent();
         }
 
         public override void OnRoundEndTheLast()
         {
             _util.CheckPhase();
+        }
+        public override void OnRoundEndTheLast_ignoreDead()
+        {
+            if (!owner.IsDead() || !_filterCheck) return;
+            _filterCheck = false;
+            MapStaticUtil.ActiveCreatureBattleCamFilterComponent(false);
         }
     }
 }

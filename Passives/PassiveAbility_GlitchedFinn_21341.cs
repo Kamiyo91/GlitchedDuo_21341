@@ -14,7 +14,7 @@ namespace GlitchedDuo_21341.Passives
     public class PassiveAbility_GlitchedFinn_21341 : PassiveAbilityBase
     {
         private MechUtilEx _util;
-
+        private bool _filterCheck;
         public override void OnWaveStart()
         {
             _util = new MechUtilEx(new MechUtilBaseModel
@@ -87,13 +87,17 @@ namespace GlitchedDuo_21341.Passives
 
         public override void OnRoundStartAfter()
         {
-            if (owner.bufListDetail.HasBuf<BattleUnitBuf_GlitchedFinnEgo_21341>())
-                MapStaticUtil.ActiveCreatureBattleCamFilterComponent();
+            if (!owner.bufListDetail.HasBuf<BattleUnitBuf_GlitchedFinnEgo_21341>()) return;
+            _filterCheck = true;
+            MapStaticUtil.ActiveCreatureBattleCamFilterComponent();
         }
 
         public override void OnRoundEndTheLast_ignoreDead()
         {
             _util.ReturnFromEgoMap();
+            if (!owner.IsDead() || !_filterCheck) return;
+            _filterCheck = false;
+            MapStaticUtil.ActiveCreatureBattleCamFilterComponent(false);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace GlitchedDuo_21341.Passives
     public class PassiveAbility_GlitchedFinnNpc_21341 : PassiveAbilityBase
     {
         private NpcMechUtil_Finn _util;
-
+        private bool _filterCheck;
         public override void OnWaveStart()
         {
             _util = new NpcMechUtil_Finn(new NpcMechUtilBaseModel
@@ -90,13 +90,17 @@ namespace GlitchedDuo_21341.Passives
 
         public override void OnRoundStartAfter()
         {
-            if (owner.bufListDetail.HasBuf<BattleUnitBuf_GlitchedFinnEgo_21341>())
-                MapStaticUtil.ActiveCreatureBattleCamFilterComponent();
+            if (!owner.bufListDetail.HasBuf<BattleUnitBuf_GlitchedFinnEgo_21341>()) return;
+            _filterCheck = true;
+            MapStaticUtil.ActiveCreatureBattleCamFilterComponent();
         }
 
         public override void OnRoundEndTheLast_ignoreDead()
         {
             _util.ReturnFromEgoMap();
+            if (!owner.IsDead() || !_filterCheck) return;
+            _filterCheck = false;
+            MapStaticUtil.ActiveCreatureBattleCamFilterComponent(false);
         }
 
         public override BattleDiceCardModel OnSelectCardAuto(BattleDiceCardModel origin, int currentDiceSlotIdx)

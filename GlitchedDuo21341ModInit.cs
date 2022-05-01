@@ -21,6 +21,7 @@ namespace GlitchedDuo_21341
             LocalizeUtil.AddLocalLocalize(GlitchedDuoModParameters.Path, GlitchedDuoModParameters.PackageId);
             SkinUtil.PreLoadBufIcons();
             LocalizeUtil.RemoveError();
+            UnitUtil.InitKeywords(Assembly.GetExecutingAssembly());
         }
 
         private static void InitParameters()

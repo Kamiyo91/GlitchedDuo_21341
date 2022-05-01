@@ -5,6 +5,16 @@ namespace GlitchedDuo_21341.Cards
 {
     public class DiceCardSelfAbility_ListenUp_21341 : DiceCardSelfAbilityBase
     {
+        public override string[] Keywords
+        {
+            get
+            {
+                return new[]
+                {
+                    "BestDuoPage_21341"
+                };
+            }
+        }
         public override void OnUseCard()
         {
             owner.allyCardDetail.DrawCards(1);
