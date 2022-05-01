@@ -27,7 +27,7 @@ namespace GlitchedDuo_21341.Passives
                 HasMechOnHp = true,
                 RecoverLightOnSurvive = true,
                 RefreshUI = true,
-                EgoType = typeof(BattleUnitBuf_GlitchedFinnEgo_21341),
+                EgoType = typeof(BattleUnitBuf_GlitchedJakeEgo_21341),
                 HasEgoAbDialog = true,
                 HasSurviveAbDialog = true,
                 SurviveAbDialogColor = AbColorType.Negative,

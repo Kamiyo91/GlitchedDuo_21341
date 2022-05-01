@@ -3,7 +3,7 @@ using GlitchedDuo_21341.Passives;
 
 namespace GlitchedDuo_21341.Cards
 {
-    public class DiceCardSelfAbility_ElasticDestrucion_21341 : DiceCardSelfAbilityBase
+    public class DiceCardSelfAbility_ElasticDestruction_21341 : DiceCardSelfAbilityBase
     {
         public override void OnUseCard()
         {
