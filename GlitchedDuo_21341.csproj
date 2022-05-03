@@ -107,7 +107,6 @@
     <Compile Include="Util\Extension\NpcMechUtil_Finn.cs" />
     <Compile Include="Util\Extension\NpcMechUtil_Jake.cs" />
     <Compile Include="Util\MapUtil.cs" />
-    <Compile Include="Util\MatchUtil.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

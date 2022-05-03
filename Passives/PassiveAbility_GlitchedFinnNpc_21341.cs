@@ -13,8 +13,9 @@ namespace GlitchedDuo_21341.Passives
 {
     public class PassiveAbility_GlitchedFinnNpc_21341 : PassiveAbilityBase
     {
-        private NpcMechUtil_Finn _util;
         private bool _filterCheck;
+        private NpcMechUtil_Finn _util;
+
         public override void OnWaveStart()
         {
             _util = new NpcMechUtil_Finn(new NpcMechUtilBaseModel

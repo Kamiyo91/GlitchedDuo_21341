@@ -13,8 +13,9 @@ namespace GlitchedDuo_21341.Passives
 {
     public class PassiveAbility_GlitchedFinn_21341 : PassiveAbilityBase
     {
-        private MechUtilEx _util;
         private bool _filterCheck;
+        private MechUtilEx _util;
+
         public override void OnWaveStart()
         {
             _util = new MechUtilEx(new MechUtilBaseModel
@@ -60,6 +61,9 @@ namespace GlitchedDuo_21341.Passives
                 }
             });
             UnitUtil.CheckSkinProjection(owner);
+            if (owner.faction != Faction.Enemy) return;
+            if (UnitUtil.SpecialCaseEgo(owner.faction, new LorId(GlitchedDuoModParameters.PackageId, 2),
+                    typeof(BattleUnitBuf_GlitchedFinnEgo_21341))) _util.ForcedEgo();
         }
 
         public override bool BeforeTakeDamage(BattleUnitModel attacker, int dmg)
@@ -98,6 +102,13 @@ namespace GlitchedDuo_21341.Passives
             if (!owner.IsDead() || !_filterCheck) return;
             _filterCheck = false;
             MapStaticUtil.ActiveCreatureBattleCamFilterComponent(false);
+        }
+
+        public override void OnRoundEnd()
+        {
+            if (owner.faction != Faction.Enemy) return;
+            if (UnitUtil.SpecialCaseEgo(owner.faction, new LorId(GlitchedDuoModParameters.PackageId, 2),
+                    typeof(BattleUnitBuf_GlitchedFinnEgo_21341))) _util.ForcedEgo();
         }
     }
 }

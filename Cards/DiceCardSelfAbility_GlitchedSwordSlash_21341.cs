@@ -15,6 +15,7 @@ namespace GlitchedDuo_21341.Cards
                 };
             }
         }
+
         public override void OnUseCard()
         {
             owner.cardSlotDetail.RecoverPlayPointByCard(1);

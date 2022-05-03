@@ -13,8 +13,8 @@ namespace GlitchedDuo_21341.Passives
 {
     public class PassiveAbility_GlitchedJake_21341 : PassiveAbilityBase
     {
-        private MechUtilBase _util;
         private bool _filterCheck;
+        private MechUtilBase _util;
 
         public override void OnWaveStart()
         {
@@ -53,6 +53,9 @@ namespace GlitchedDuo_21341.Passives
                 }
             });
             UnitUtil.CheckSkinProjection(owner);
+            if (owner.faction != Faction.Enemy) return;
+            if (UnitUtil.SpecialCaseEgo(owner.faction, new LorId(GlitchedDuoModParameters.PackageId, 3),
+                    typeof(BattleUnitBuf_GlitchedJakeEgo_21341))) _util.ForcedEgo();
         }
 
         public override bool BeforeTakeDamage(BattleUnitModel attacker, int dmg)
@@ -83,11 +86,19 @@ namespace GlitchedDuo_21341.Passives
             _filterCheck = true;
             MapStaticUtil.ActiveCreatureBattleCamFilterComponent();
         }
+
         public override void OnRoundEndTheLast_ignoreDead()
         {
             if (!owner.IsDead() || !_filterCheck) return;
             _filterCheck = false;
             MapStaticUtil.ActiveCreatureBattleCamFilterComponent(false);
+        }
+
+        public override void OnRoundEnd()
+        {
+            if (owner.faction != Faction.Enemy) return;
+            if (UnitUtil.SpecialCaseEgo(owner.faction, new LorId(GlitchedDuoModParameters.PackageId, 3),
+                    typeof(BattleUnitBuf_GlitchedJakeEgo_21341))) _util.ForcedEgo();
         }
     }
 }

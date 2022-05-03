@@ -1,4 +1,4 @@
-﻿using GlitchedDuo_21341.Util;
+﻿using KamiyoStaticUtil.Utils;
 
 namespace GlitchedDuo_21341.Passives
 {
@@ -9,7 +9,7 @@ namespace GlitchedDuo_21341.Passives
 
         public override void OnWaveStart()
         {
-            _memberCount = MatchUtil.SupportUnitIgnore(owner);
+            _memberCount = UnitUtil.SupportCharCheck(owner);
             switch (_memberCount)
             {
                 case 1:
@@ -30,7 +30,7 @@ namespace GlitchedDuo_21341.Passives
 
         public override void OnRoundEnd()
         {
-            _memberCount = MatchUtil.SupportUnitIgnore(owner);
+            _memberCount = UnitUtil.SupportCharCheck(owner);
             switch (_memberCount)
             {
                 case 1:

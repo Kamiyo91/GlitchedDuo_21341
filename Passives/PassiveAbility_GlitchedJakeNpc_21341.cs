@@ -12,8 +12,8 @@ namespace GlitchedDuo_21341.Passives
 {
     public class PassiveAbility_GlitchedJakeNpc_21341 : PassiveAbilityBase
     {
-        private NpcMechUtil_Jake _util;
         private bool _filterCheck;
+        private NpcMechUtil_Jake _util;
 
         public override void OnWaveStart()
         {
@@ -88,6 +88,7 @@ namespace GlitchedDuo_21341.Passives
         {
             _util.CheckPhase();
         }
+
         public override void OnRoundEndTheLast_ignoreDead()
         {
             if (!owner.IsDead() || !_filterCheck) return;
