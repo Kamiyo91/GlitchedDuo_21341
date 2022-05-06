@@ -40,6 +40,14 @@ namespace GlitchedDuo_21341.Util.Extension
             SetCounter(_model.MaxCounter);
         }
 
+        public void Restart()
+        {
+            _model.Phase++;
+            ForcedEgo();
+            SetMassAttack(true);
+            SetCounter(_model.MaxCounter);
+        }
+
         public virtual void ReturnFromEgoMap()
         {
             if (!_model.MapUsed) return;

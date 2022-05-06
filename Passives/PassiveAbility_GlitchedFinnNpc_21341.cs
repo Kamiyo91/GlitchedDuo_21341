@@ -64,6 +64,7 @@ namespace GlitchedDuo_21341.Passives
                 LorIdEgoMassAttack = new LorId(GlitchedDuoModParameters.PackageId, 14),
                 EgoAttackCardId = new LorId(GlitchedDuoModParameters.PackageId, 14)
             });
+            if(owner.hp <= 171) _util.Restart();
         }
 
         public override int SpeedDiceNumAdder()

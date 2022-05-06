@@ -52,6 +52,7 @@ namespace GlitchedDuo_21341.Passives
                     }
                 }
             });
+            if (owner.hp <= 161) _util.CheckPhase();
         }
 
         public override int SpeedDiceNumAdder()
