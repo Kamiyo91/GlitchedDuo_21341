@@ -31,6 +31,7 @@ namespace GlitchedDuo_21341
                 Path.GetDirectoryName(
                     Uri.UnescapeDataString(new UriBuilder(Assembly.GetExecutingAssembly().CodeBase).Path));
             ModParameters.Path.Add(GlitchedDuoModParameters.Path);
+            ModParameters.LocalizePackageIdAndPath.Add(GlitchedDuoModParameters.PackageId, GlitchedDuoModParameters.Path);
             ModParameters.SpritePreviewChange.AddRange(new Dictionary<string, List<LorId>>
             {
                 { "FinnDefault_21341", new List<LorId> { new LorId(GlitchedDuoModParameters.PackageId, 10000001) } },
