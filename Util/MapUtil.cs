@@ -32,7 +32,11 @@ namespace GlitchedDuo_21341.Util
                 StageType.Creature) return;
             CustomMapHandler.RemoveCustomEgoMapByAssimilation(mapName);
             MapStaticUtil.RemoveValueInAddedMap(mapName);
-            if (!isAssimilationMap) return;
+            if (!isAssimilationMap)
+            {
+                Singleton<StageController>.Instance.CheckMapChange();
+                return;
+            }
             MapStaticUtil.MapChangedValue(true);
             if (!string.IsNullOrEmpty(Singleton<StageController>.Instance.GetStageModel().GetCurrentMapInfo()))
                 CustomMapHandler.EnforceTheme();
